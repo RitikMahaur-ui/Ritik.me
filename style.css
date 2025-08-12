@@ -1,0 +1,477 @@
+body {
+    margin: 0;
+    font-family: 'open sans', sans-serif;
+    background: white;
+    color: black;
+    padding: 30px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hamburger icon */
+.menu-icon i {
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Social bar */
+.social-bar {
+  display: flex;
+  align-items: center; /* vertically centers all items */
+  gap: 12px;           /* space between icons */
+}
+.social-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  color: inherit;
+  font-size: 1.3rem;
+  text-decoration: none;
+  height: 24px;    /* fix height for consistent icon size */
+  width: 24px;     /* fix width for consistent icon size */
+}
+
+.social-bar a svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.social-bar a.github {
+  color: #333; /* GitHub dark gray */
+}
+
+.social-bar a.linkedin {
+  color: #0A66C2; /* LinkedIn official blue */
+}
+
+.social-bar a.instagram {
+  color: #E4405F; /* Instagram pink/red */
+}
+
+.social-bar a.twitter svg {
+  fill: #1DA1F2; /* Twitter blue, already set in SVG */
+}
+
+.github { color: #181717; }
+.linkedin { color: #0A66C2; }
+.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Side menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -200px; /* hidden by default */
+    width: 200px;
+    height: 100%;
+    background-color: #222;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px; /* space for top bar */
+    transition: left 0.3s ease;
+}
+
+.side-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+}
+
+.side-menu a:hover {
+    background-color: #333;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+
+main {
+    padding-top: 80px; /* avoid hiding content under top bar */
+}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap');
+
+
+
+/* Heading 1 */
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;      /* big and bold */
+  color: green;
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+/* Heading 2 */
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #444;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Paragraph */
+p {
+  font-family: 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #333333;
+  text-align: justify;  /* left align text */
+ margin-bottom: 25px;
+}
+#skills {
+  text-align: center; /* center all children including h3 */
+}
+
+#skills h3 {
+  display: inline-block;
+  padding: 6px 18px;
+  margin: 25px auto 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000; /* black text */
+  background: rgba(0, 0, 0, 0.05); /* very light gray background */
+  border-radius: 10px;
+  cursor: default;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  text-align: center;
+}
+
+#skills h3:hover {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.skills-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;   /* no wrapping */
+  margin-bottom: 40px;
+  padding: 0 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for WebKit browsers */
+.skills-list::-webkit-scrollbar {
+  height: 6px;
+}
+.skills-list::-webkit-scrollbar-thumb {
+  background: rgba(37, 117, 252, 0.4);
+  border-radius: 3px;
+}
+.skills-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.skill-item {
+  flex: 0 0 auto;   /* fixed size, no grow/shrink */
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: default;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.skill-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-bottom: 8px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Skill name styling */
+.skill-item p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2575fc; /* brand blue for good contrast */
+  white-space: nowrap; /* prevent line breaks */
+}
+
+
+
+.skill-item:hover {
+  background: transparent; /* no bg on skill-item */
+}
+.hero-illustration{
+  display:flex;
+  justify-content:center;   /* center the image */
+  align-items:center;
+  margin: 20px 0;
+  pointer-events: none;     /* so it doesn't block clicks underneath */
+}
+
+.hero-illustration img{
+  width: 260px;             /* change size as needed */
+  max-width: 45vw;          /* responsive */
+  animation: float 4s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+/* gentle float */
+@keyframes float {
+  0%   { transform: translateY(0)        rotate(0deg); }
+  50%  { transform: translateY(-12px)    rotate(-1deg); }
+  100% { transform: translateY(0)        rotate(0deg); }
+}
+
+/* Keep your colors, just fix alignment and spacing */
+#login form {
+  padding: 0 15px; /* Shift fields slightly right */
+}
+
+#login label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: left; /* Keep labels aligned left */
+}
+
+#login input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Prevent width overflow */
+}
+
+/* Keep your same button colors */
+#login button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.whatsapp-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;   /* circle shape */
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+/* The little triangular "tip" */
+.whatsapp-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  padding: 0 18px;         /* horizontal padding for text */
+  height: 50px;            /* fixed height */
+  border-radius: 25px;     /* pill shape with half height */
+  line-height: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  position: fixed;
+}
+
+/* The small tip */
+.whatsapp-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  width: 50px;            /* fixed width */
+  height: 50px;           /* fixed height */
+  border-radius: 50%;     /* circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+  user-select: none;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+/* The little "tip" */
+/* Main button styling */
+.whatsapp-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.whatsapp-button:hover {
+  background-color: #128c7e;
+}
+
+/* Tooltip styling */
+.whatsapp-button::after {
+  content: "Chat";
+  position: absolute;
+  bottom: 70px;
+  right: -10px;
+  background-color: #25d366;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+/* Show tooltip on hover */
+.whatsapp-button:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tooltip arrow */
+.whatsapp-button::before {
+  content: "";
+  position: absolute;
+  bottom: 60px;
+  right: -5px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #25d366;
+}
+footer {
+  background-color: #000; /* Full black */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0 10px; /* Extra space at top, less at bottom */
+  width: 100%;
+  font-size: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 10px;
+  width: 100%;
+  box-sizing: border-box; /* ensures padding doesn't cause overflow */
+}
+
+footer p {
+  margin: 0 0 10px 0;
+  max-width: 100%;  /* prevent overflow */
+  word-wrap: break-word; /* wrap long text */
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap; /* allows icons to wrap on very narrow screens */
+}
+
+footer p {
+  margin: 0;
+  font-weight: 300; /* Bold for clarity */
+  letter-spacing: 0.1px; /* More readable */
+  line-height: 0.8; /* Enough space around text */
+  color: #ffffff; /* Pure white */
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.footer-icons {
+  margin-top: 6px;
+}
+
+.footer-icons a {
+  color: #ccc; /* Softer than pure white to keep focus on text */
+  font-size: 15px; /* Small icons */
+  margin: 0 6px;
+  text-decoration: none;
+}
+
+.footer-icons a:hover {
+  color: #1da1f2; /* Hover blue */
+}
