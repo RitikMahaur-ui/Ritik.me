@@ -23,9 +23,8 @@ Designed to leave a lasting first impression while being lightweight, fast, and 
 https://ritikmahaur-ui.github.io/Ritik.me/
 
 ## 📬 Contact
-- **Email:** your.email@example.com  
-- **GitHub:** [YourGitHubUsername](https://github.com/YourGitHubUsername)  
-- **Peerlist:** [YourPeerlistLink](https://peerlist.io/yourusername)
+- **Email:** ritikmahour123@gmail.con
+- **Peerlist:**https://peerlist.io/ritik_mahour
 
 ---
 
